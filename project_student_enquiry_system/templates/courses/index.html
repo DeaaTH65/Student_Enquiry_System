@@ -1,0 +1,41 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'course-create' %}" class="btn btn-primary btn-sm mt-3 mb-2">Add New Course</a>
+    <h1>{{ body_title }}</h1>
+    <hr>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Course Name</th>
+                <th>Course Code</th>
+                <th colspan="3">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for val in courses %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ val.course_name }}</td>
+                <td>{{ val.course_code }}</td>
+                <td><a href="{% url 'course-show' val.id %}" 
+                    class="btn btn-primary btn-sm mt-3 mb-2">Show</a>
+                </td>
+                <td><a href="{% url 'course-edit' val.id %}" 
+                    class="btn btn-primary btn-sm mt-3 mb-2">Edit</a>
+                </td>
+                <td><a href="{% url 'course-delete' val.id %}" 
+                    class="btn btn-primary btn-sm mt-3 mb-2">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

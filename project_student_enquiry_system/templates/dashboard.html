@@ -1,0 +1,29 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}
+SES | Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-3">Dashboard</h1>
+    <div class="card p-5 mt-3">
+        <div class="row d-flex justify-content-between">
+            <div class="col">
+                <div class="card p-5">
+                    <h4>Courses - <strong>5</strong></h4>
+                    <hr>
+                    <a href="{% url 'course-index' %}">View Courses</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card p-5">
+                    <h4>Students - <strong>15</strong></h4>
+                    <hr>
+                    <a href="{% url 'student-index' %}">View Students</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
