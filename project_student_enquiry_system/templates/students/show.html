@@ -1,0 +1,26 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}
+Student | SHOW
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'student-index' %}" class="btn btn-primary btn-sm mt-3 mb-2">Back</a>
+    <a href="{% url 'student-edit' student.id %}" class="btn btn-sm btn-primary mt-3 mb-2">Edit</a>
+    <h1>Student Detail</h1>
+    <hr>
+    <div class="card p-5 mt-3">
+        <div class="card-header">
+            <h2>Name: {{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</h2>
+        </div>
+        <div class="card-body">
+            <h3>Email: {{ student.email }}</h3>
+            <h3>Contact: {{ student.contact }}</h3>
+            <h3>Address: {{ student.address }}</h3>
+            <h3>Current Degree: {{ student.current_degree }}</h3>
+            <h3>Course: {{ student.course.course_name }}</h3>
+        </div>
+    </div>
+</div>
+{% endblock %}
