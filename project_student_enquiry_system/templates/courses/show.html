@@ -1,0 +1,22 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}
+Course | SHOW
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'course-index' %}" class="btn btn-primary btn-sm mt-3 mb-2">Back</a>
+    <a href="{% url 'course-edit' course.id %}" class="btn btn-sm btn-primary mt-3 mb-2">Edit</a>
+    <h1>Course Detail</h1>
+    <hr>
+    <div class="card p-5 mt-3">
+        <div class="card-header">
+            <h2>Name: {{ course.course_name }}</h2>
+        </div>
+        <div class="card-body">
+            <h3>Code: {{ course.course_code }}</h3>
+        </div>
+    </div>
+</div>
+{% endblock %}
