@@ -24,7 +24,7 @@
             {% for val in students %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ val.first_name }} {{ val.middle_name }} {{ val.last_name }}</td>
+                <td>{{ val.first_name }} {{ val.last_name }}</td>
                 <td>{{ val.contact }}</td>
                 <td>{{ val.course.course_name }}</td>
                 <td>{{ val.created_at }}</td>
