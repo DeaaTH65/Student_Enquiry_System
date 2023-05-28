@@ -5,15 +5,16 @@ Student | UPDATE
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="background-color: cyan">
     <a href="{% url 'student-index' %}" class="btn btn-primary btn-sm mt-3 mb-2">Back</a>
     <h1>Update the Student</h1>
     <hr>
-    <div class="card p-5 mt-3">
+    <div class="card p-5 mt-3" style="background-color: olive">
         <form action="#" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" class="btn btn-sm btn-primary col-12" value="Update Course">
+            <hr>
+            <input type="submit" class="btn btn-sm btn-primary col-3" value="Update Course">
         </form>
     </div>
 </div>

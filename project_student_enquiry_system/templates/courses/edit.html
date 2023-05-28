@@ -9,7 +9,7 @@ Course | UPDATE
     <a href="{% url 'course-index' %}" class="btn btn-primary btn-sm mt-3 mb-2">Back</a>
     <h1>Update the course</h1>
     <hr>
-    <div class="card p-5 mt-3">
+    <div class="card p-5 mt-3" style="background-color: cyan">
         <form action="{% url 'course-update' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="id" value="{{ course.id }}">

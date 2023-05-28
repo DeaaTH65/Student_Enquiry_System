@@ -10,7 +10,7 @@ Student | SHOW
     <a href="{% url 'student-edit' student.id %}" class="btn btn-sm btn-primary mt-3 mb-2">Edit</a>
     <h1>Student Detail</h1>
     <hr>
-    <div class="card p-5 mt-3">
+    <div class="card p-5 mt-3" style="background-color: cyan">
         <div class="card-header">
             <h2>Name: {{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</h2>
         </div>
