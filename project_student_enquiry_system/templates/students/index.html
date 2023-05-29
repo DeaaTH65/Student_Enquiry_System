@@ -9,6 +9,7 @@
     <a href="{% url 'student-create' %}" class="btn btn-primary btn-sm mt-3 mb-2">Add New Student</a>
     <h1>{{ body_title }}</h1>
     <hr>
+    {% include 'partials/_message.html' %}
     <table class="table table-hover">
         <thead>
             <tr>

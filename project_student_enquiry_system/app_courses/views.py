@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from app_courses.forms import CourseCreateForm
 from app_courses.models import CourseModel
+from django.contrib import messages
 
 # Create your views here.
 def course_index(request):
@@ -22,6 +23,7 @@ def course_create(request):
         code = request.POST.get("course_code")
         cm = CourseModel(course_name=name, course_code=code)
         cm.save()
+        messages.success(request, "Data added successfully")
 
         # cm = CourseModel()
         # cm.course_name = request.POST.get("course_name")
@@ -42,6 +44,7 @@ def course_update(request):
         data = CourseCreateForm(data=request.POST, instance=instance)
         if data.is_valid():
             data.save()
+            messages.success(request, "Data updated successfully")
             return redirect("course-index")
         return redirect("course-index")
     return redirect("course-index")
@@ -54,4 +57,5 @@ def course_show(request, id):
 def course_delete(request, id):
     course = CourseModel.objects.get(id=id)
     course.delete()
+    messages.success(request, "Data deleted successfully")
     return redirect("course-index")
