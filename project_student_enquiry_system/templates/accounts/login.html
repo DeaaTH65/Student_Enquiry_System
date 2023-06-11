@@ -12,12 +12,14 @@
   </head>
   <body>
     <div class="container">
-        <div class="card p-5" style="background-color: grey">
-            <div class="card-header" style="background-color: cyan">
+        <div class="card p-5">
+            <div class="card-header">
                 <h1>Login your account here..</h1>
             </div>
-            <div class="card-body" style="background-color: cyan">
-                <form action="#">
+            {% include 'partials/_message.html' %}
+            <div class="card-body">
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
                     <div class="form-group mb-3">
                         <label for="username">Username</label>
                         <input type="text" name="username" class="form-control mt-2">
@@ -30,7 +32,7 @@
                 </form>
             </div>
             <div class="card-footer">
-                Not registered yet? <a href="#">Click here</a>
+                Not registered yet? <a href="{% url 'register' %}">Click here</a>
             </div>  
         </div>
     </div>
