@@ -6,7 +6,6 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-
 # Create your views here.
 class LoginView(View):
     def get(self, request):
@@ -23,13 +22,11 @@ class LoginView(View):
         messages.error(request, 'Login fail')
         return redirect('login')
 
-
 class LogoutView(View):
     def get(self, request):
         logout(request)
         messages.success(request, 'You are logged out..')
         return redirect('login')
-
 
 class RegisterView(View):
     def get(self, request):
@@ -55,7 +52,6 @@ class RegisterView(View):
         except:
             messages.error(request, 'Something went wrong')
             return redirect('register')
-
 
 class DashboardView(View):
     def get(self, request):
