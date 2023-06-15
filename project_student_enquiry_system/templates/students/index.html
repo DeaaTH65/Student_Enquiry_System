@@ -4,12 +4,13 @@
 {{ title }}
 {% endblock %}
 
+{% load static %}
+
 {% block content %}
-<div class="container"style="background-color: cyan">
+<div class="container">
     <a href="{% url 'student-create' %}" class="btn btn-primary btn-sm mt-3 mb-2">Add New Student</a>
     <h1>{{ body_title }}</h1>
     <hr>
-    {% include 'partials/_message.html' %}
     <table class="table table-hover">
         <thead>
             <tr>
@@ -17,6 +18,7 @@
                 <th>Name</th>
                 <th>Contact</th>
                 <th>Course</th>
+                <th>Profile</th>
                 <th>Applied At</th>
                 <th colspan="3">Action</th>
             </tr>
@@ -25,9 +27,10 @@
             {% for val in students %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ val.first_name }} {{ val.last_name }}</td>
+                <td>{{ val.first_name }} {{ val.middle_name }} {{ val.last_name }}</td>
                 <td>{{ val.contact }}</td>
                 <td>{{ val.course.course_name }}</td>
+                <td><img src="{{ val.profile_img.url }}" alt="" width="50" height="50"></td>
                 <td>{{ val.created_at }}</td>
                 <td><a href="{% url 'student-show' val.id %}" 
                     class="btn btn-primary btn-sm mt-3 mb-2">Show</a>

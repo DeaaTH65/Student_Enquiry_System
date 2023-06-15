@@ -10,7 +10,7 @@ SES | Student Create
     <h1>Student Create Form</h1>
     <hr>
     <div class="card p-5">
-        <form action="#" method="post">
+        <form action="#" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
 
