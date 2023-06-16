@@ -5,6 +5,9 @@ from django.contrib import auth
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 # Create your views here.
 class LoginView(View):
@@ -45,6 +48,14 @@ class RegisterView(View):
                 user.last_name = last_name
                 user.is_active = True
                 user.save()
+                
+                send_mail(
+                    'Account Creation', # subject
+                    'Your account has been created successfully. Welcome to SES', # body
+                    settings.EMAIL_HOST_USER, # sender email address
+                    [user.email] # receiver email address
+                )
+                
                 messages.success(request, 'Registered successfully')
                 return redirect('login')
             messages.error(request, 'Something went wrong')
