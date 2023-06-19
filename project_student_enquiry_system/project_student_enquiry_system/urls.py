@@ -8,4 +8,6 @@ urlpatterns = [
     path('courses/', include('app_courses.urls')),
     path('students/', include('app_students.urls')),
     path('', include('app_accounts.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', include('app_api.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

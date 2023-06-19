@@ -66,7 +66,7 @@ class RegisterView(View):
 
 class DashboardView(View):
     def get(self, request):
-        if request.user is None:
+        if not request.user.is_authenticated:
             messages.error(request, 'Unauthorized access')
             return redirect('login')
         return render(request, 'dashboard.html')
