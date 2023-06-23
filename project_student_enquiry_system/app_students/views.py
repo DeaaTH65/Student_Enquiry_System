@@ -22,6 +22,7 @@ def student_create(request):
         std_obj.contact = request.POST.get('contact')
         std_obj.address = request.POST.get('address')
         std_obj.course = course
+        std_obj.current_degree = request.POST.get('current_degree')
         std_obj.profile_img = request.FILES.get('profile_img') # for file from form
         std_obj.user = request.user
         std_obj.save()
@@ -29,12 +30,12 @@ def student_create(request):
         #     std.user = user
         #     std.save()
         #     return redirect("student-index")
-        return redirect("student-create")
+        return redirect("student-index")
     return render(request, 'students/create.html', context)
 
 @login_required(login_url='/login')
 def student_index(request):
-    # students = StudentModel.objects.all() - for all data
+    #students = StudentModel.objects.all() #- for all data
     students = StudentModel.objects.filter(user=request.user) # filter by user
     context = {
         "students" : students, 

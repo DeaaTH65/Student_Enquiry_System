@@ -30,7 +30,7 @@
                 <td>{{ val.first_name }} {{ val.middle_name }} {{ val.last_name }}</td>
                 <td>{{ val.contact }}</td>
                 <td>{{ val.course.course_name }}</td>
-                <td><img src="{{ val.profile_img.url }}" alt="" width="50" height="50"></td>
+                <td><img src="{{ val.profile_img.url }}" alt="" width="50" height="50" /></td>
                 <td>{{ val.created_at }}</td>
                 <td><a href="{% url 'student-show' val.id %}" 
                     class="btn btn-primary btn-sm mt-3 mb-2">Show</a>
