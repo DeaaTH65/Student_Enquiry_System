@@ -15,7 +15,7 @@ class CourseApiView(APIView):
         # serialing model object
         serializer = CourseSerializer(course_obj, many=True)
         # return api response with serialize object
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         serializer = CourseSerializer(data=request.data)
@@ -35,9 +35,9 @@ class CourseApiIdView(APIView):
     def get(self, request, id):
         instance = self.get_object(id)
         if instance is None:
-            return Response({"error": "No data found"})
+            return Response({"error": "No data found"}, status=status.HTTP_404_NOT_FOUND)
         serializer = CourseSerializer(instance)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, id):
         instance = self.get_object(id)
